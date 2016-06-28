@@ -1,0 +1,24 @@
+.rc-app .logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.rc-players-career-data {
+  width: 100%;
+}
+
+.rc-players-career-data th,
+.rc-players-career-data td {
+  text-align: center;
+}
+
+.rc-player-career {
+
+}
+
+.rc-player-career .visual {
+}
+
+.rc-player-career .data {
+
+}

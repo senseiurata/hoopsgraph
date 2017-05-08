@@ -8,7 +8,7 @@ const getStats = (seasons, type) => {
   return seasons.map((season) => season[type]);
 }
 
-export default ({ 
+export default ({
   playerId,
   playerName,
   seasons,
@@ -25,7 +25,7 @@ export default ({
         <Link to={ `/profile/${playerId}` } className="btn btn-primary">
           Profile
         </Link>
-        
+
         <button
           className="btn btn-danger"
           onClick={ deletePlayerCareerStats.bind(this, playerId) }

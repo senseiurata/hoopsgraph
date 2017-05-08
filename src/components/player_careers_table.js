@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
-import PlayerCareer from '../components/player_career'
-import { connect } from 'react-redux';
-import CATEGORIES from '../constants/categories';
+import React from 'react';
+import PlayerCareer from './player_career';
 
-const PlayersCareerData = ({ allPlayers, careerStats, renderedCategories }) => {
-  if (careerStats.length === 0) {
-    return <div></div>;
-  }
+export default (props) => {
+  const {
+    categories,
+    renderedCategories,
+    careerStats,
+    allPlayers,
+    deletePlayerCareerStats,
+  } = props;
 
   return (
-    <table className="rc-players-career-data">
+    <table className="rc-players-careers-table">
       <thead>
         <tr>
           <th>Player</th>
 
           {
-            CATEGORIES.map((category) => {
+            categories.map((category) => {
               return renderedCategories[category.value] ?
                 <th key={ category.id }>
                   { category.name }
@@ -34,7 +36,8 @@ const PlayersCareerData = ({ allPlayers, careerStats, renderedCategories }) => {
                 playerName={ allPlayers.filter((player) => player.id === playerCareer.playerId)[0].name }
                 seasons={ playerCareer.seasons }
                 renderedCategories={ renderedCategories }
-                categories={ CATEGORIES }
+                categories={ categories }
+                deletePlayerCareerStats={ deletePlayerCareerStats }
               />
             );
           })
@@ -43,13 +46,3 @@ const PlayersCareerData = ({ allPlayers, careerStats, renderedCategories }) => {
     </table>
   );
 }
-
-function mapStateToProps(state) {
-  return {
-    allPlayers: state.players.allPlayers,
-    careerStats: state.players.careerStats,
-    renderedCategories: state.players.renderedCategories,
-  };
-}
-
-export default connect(mapStateToProps)(PlayersCareerData);

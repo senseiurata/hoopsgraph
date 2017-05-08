@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Category extends Component {
-  handleClick() {
-    this.props.handleToggle(this.props.value);
-  }
+export default (props) => {
+  const { handleToggle, checked, label, value } = props;
 
-  render() {
-    return (
-      <div>
-        <label onChange={ this.handleClick.bind(this) }>
-          <input type="checkbox" checked={ this.props.checked ? 'checked' : '' }/>
-          { this.props.label }
-        </label>
-      </div>
-    );
-  }
+  return (
+    <div className="rc-category">
+      <label>
+        <input onChange={ handleToggle.bind(this, value) } type="checkbox" checked={ checked ? 'checked' : '' } />
+        { label }
+      </label>
+    </div>
+  );
 }
-
-export default Category;

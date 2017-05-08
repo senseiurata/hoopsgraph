@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Category from '../components/category';
 import { toggleCategory } from '../actions/players';
 import CATEGORIES from '../constants/categories';
+import CategoriesBasic from '../components/categories_basic';
 
 class Categories extends Component {
-  handleToggle(value) {
-    this.props.toggleCategory(value);
-  }
-
   render() {
     return (
-      <div>
-        <h5>Basic Stats</h5>
-
-        {
-          CATEGORIES.map((category) => {
-            return <Category
-              key={ category.id }
-              handleToggle={ this.handleToggle.bind(this) }
-              label={ category.name }
-              checked={ this.props.renderedCategories[category.value] }
-              value={ category.value }
-            />
-          })
-        }
-      </div>
+      <CategoriesBasic 
+        categories={ CATEGORIES }
+        renderedCategories={ this.props.renderedCategories }
+        handleToggle={ this.props.toggleCategory }
+      />
     );
   }
 }

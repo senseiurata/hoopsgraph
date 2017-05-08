@@ -3,12 +3,12 @@
   height: 3rem;
 }
 
-.rc-players-career-data {
+.rc-players-careers-table {
   width: 100%;
 }
 
-.rc-players-career-data th,
-.rc-players-career-data td {
+.rc-players-careers-table th,
+.rc-players-careers-table td {
   text-align: center;
 }
 

@@ -11,7 +11,6 @@ const CAREER_STATS_PATH = 'careerstats';
 
 export function getPlayers() {
   const request = axios.get(`${ROOT_URL}/${PLAYERS_LIST_PATH}`);
-  console.log(request);
 
   return {
     type: GET_PLAYERS,
@@ -41,4 +40,3 @@ export function toggleCategory(category) {
     payload: category
   };
 }
-

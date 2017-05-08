@@ -20,7 +20,6 @@ const INITIAL_STATE = {
 };
 
 export default function(state = INITIAL_STATE, action) {
-  console.log(action.payload)
   switch(action.type) {
     case GET_PLAYERS:
       const players = action.payload.data.resultSets[0].rowSet;
@@ -33,7 +32,6 @@ export default function(state = INITIAL_STATE, action) {
           teamAbbv: player[10],
         }
       });
-      // console.log('reducer: get_players', { ...state, allPlayers: players })
 
       return { ...state, allPlayers: parsedPlayers };
     case GET_PLAYER_CAREER_STATS:
@@ -51,8 +49,6 @@ export default function(state = INITIAL_STATE, action) {
           blocks: season[23],
         }
       });
-
-      // console.log(action.payload.data);
 
       return { ...state, careerStats: [...state.careerStats, {
           playerId: playerId,
@@ -72,7 +68,6 @@ export default function(state = INITIAL_STATE, action) {
 
       return { ...state, renderedCategories: toggledCategories };
     default:
-      // console.log('reducer: default', state)
       return state;
   }
 }

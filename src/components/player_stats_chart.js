@@ -7,7 +7,7 @@ const average = (numbers) => {
 
 export default (props) => {
   return (
-    <div>
+    <div className="rc-player-stats-chart">
       <Sparklines height={ 120 } width={ 180 } data={ props.data } min={ props.min } max={ props.max }>
         <SparklinesLine color={ props.color } />
         <SparklinesReferenceLine type="avg" />
